@@ -1,10 +1,12 @@
-package com.tondracek.myfarmer.shared.demo.domain
+package com.tondracek.myfarmer.features.demo.domain
 
-import java.time.LocalDateTime
-import java.util.UUID
+import kotlinx.datetime.LocalDateTime
+import kotlin.uuid.ExperimentalUuidApi
+import kotlin.uuid.Uuid
 
+@OptIn(ExperimentalUuidApi::class)
 data class Demo(
-    val id: UUID,
+    val id: Uuid,
     val name: String,
     val index: Int,
     val date: LocalDateTime

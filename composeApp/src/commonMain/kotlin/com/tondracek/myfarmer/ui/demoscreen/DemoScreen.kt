@@ -11,7 +11,6 @@ import androidx.compose.foundation.lazy.items
 import androidx.compose.material.icons.Icons
 import androidx.compose.material.icons.filled.Add
 import androidx.compose.material3.Card
-import androidx.compose.material3.CircularProgressIndicator
 import androidx.compose.material3.FloatingActionButton
 import androidx.compose.material3.Icon
 import androidx.compose.material3.Scaffold
@@ -22,9 +21,14 @@ import androidx.compose.ui.Modifier
 import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.unit.dp
 import com.tondracek.myfarmer.androidApp.ui.common.theme.MyFarmerTheme
-import com.tondracek.myfarmer.shared.demo.domain.Demo
+import com.tondracek.myfarmer.features.core.utils.getLocalDateTimeNow
+import com.tondracek.myfarmer.features.demo.domain.Demo
+import com.tondracek.myfarmer.ui.common.layout.LoadingScreen
 import org.jetbrains.compose.ui.tooling.preview.Preview
+import kotlin.uuid.ExperimentalUuidApi
+import kotlin.uuid.Uuid
 
+@OptIn(ExperimentalUuidApi::class)
 @Composable
 fun DemoScreen(
     state: DemoScreenState,
@@ -34,7 +38,7 @@ fun DemoScreen(
         floatingActionButton = {
             FloatingActionButton(onClick = onAddDemoClick) {
                 Icon(
-                    Icons.Default.Add,
+                    imageVector = Icons.Default.Add,
                     contentDescription = "Add demo"
                 )
             }
@@ -61,8 +65,8 @@ fun DemoScreen(
                                 Modifier.fillMaxWidth(),
                                 horizontalArrangement = Arrangement.SpaceAround
                             ) {
-                                Text(it.date.format(DateTimeFormatter.ofLocalizedTime(FormatStyle.MEDIUM)))
-                                Text(it.date.format(DateTimeFormatter.ofLocalizedDate(FormatStyle.MEDIUM)))
+                                Text(it.date.toString())
+                                Text(it.date.toString())
                             }
                             Text(it.index.toString())
                             Text(
@@ -73,33 +77,34 @@ fun DemoScreen(
                 }
             }
 
-            DemoScreenState.Loading -> CircularProgressIndicator()
+            DemoScreenState.Loading -> LoadingScreen()
             is DemoScreenState.Error -> Text(state.message)
         }
     }
 }
 
+@OptIn(ExperimentalUuidApi::class)
 @Preview
 @Composable
 private fun DemoScreenPreview() {
     val demos = listOf(
         Demo(
-            id = UUID.randomUUID(),
+            id = Uuid.random(),
             name = "Demo 1",
             index = 1,
-            date = LocalDateTime.now()
+            date = getLocalDateTimeNow()
         ),
         Demo(
-            id = UUID.randomUUID(),
+            id = Uuid.random(),
             name = "Demo 2",
             index = 2,
-            date = LocalDateTime.now()
+            date = getLocalDateTimeNow()
         ),
         Demo(
-            id = UUID.randomUUID(),
+            id = Uuid.random(),
             name = "Demo 3",
             index = 3,
-            date = LocalDateTime.now()
+            date = getLocalDateTimeNow()
         )
     )
 

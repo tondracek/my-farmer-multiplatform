@@ -1,4 +1,4 @@
-package com.tondracek.myfarmer.shared.auth.domain.result
+package com.tondracek.myfarmer.features.auth.domain.result
 
 import com.tondracek.myfarmer.shared.core.domain.UseCaseResult
 

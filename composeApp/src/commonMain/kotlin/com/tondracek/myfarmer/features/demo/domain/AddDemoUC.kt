@@ -1,12 +1,6 @@
 package com.tondracek.myfarmer.features.demo.domain
 
-import com.tondracek.myfarmer.shared.demo.domain.Demo
-import kotlinx.datetime.LocalDateTime
-import kotlinx.datetime.TimeZone
-import kotlinx.datetime.toLocalDateTime
-import kotlin.time.Clock
-import kotlin.time.ExperimentalTime
-import kotlin.time.Instant
+import com.tondracek.myfarmer.features.core.utils.getLocalDateTimeNow
 import kotlin.uuid.ExperimentalUuidApi
 import kotlin.uuid.Uuid
 
@@ -26,10 +20,4 @@ class AddDemoUC(
 //        demoRepository.create(demo)
         println("XXX ADD DEMO $demo")
     }
-}
-
-@OptIn(ExperimentalTime::class)
-private fun getLocalDateTimeNow(): LocalDateTime {
-    val clockNow: Instant = Clock.System.now()
-    return clockNow.toLocalDateTime(TimeZone.currentSystemDefault())
 }

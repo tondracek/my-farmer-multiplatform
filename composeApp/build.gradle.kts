@@ -5,6 +5,7 @@ plugins {
     alias(libs.plugins.androidApplication)
     alias(libs.plugins.composeMultiplatform)
     alias(libs.plugins.composeCompiler)
+    alias(libs.plugins.kotlin.serialization)
 }
 
 kotlin {
@@ -47,7 +48,8 @@ kotlin {
             implementation(libs.koin.compose)
 
             implementation(libs.kotlinx.datetime)
-            implementation(libs.kotlinx.uuid)
+            implementation(libs.androidx.material.icons.core)
+            implementation(libs.androidx.material.icons.extended)
         }
 
         commonTest.dependencies {

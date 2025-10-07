@@ -1,6 +1,6 @@
 package com.tondracek.myfarmer.ui.demoscreen
 
-import com.tondracek.myfarmer.shared.demo.domain.Demo
+import com.tondracek.myfarmer.features.demo.domain.Demo
 
 sealed interface DemoScreenState {
     object Loading : DemoScreenState

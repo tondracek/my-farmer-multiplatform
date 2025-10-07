@@ -2,9 +2,9 @@ package com.tondracek.myfarmer.ui.demoscreen
 
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
-import com.tondracek.myfarmer.shared.core.domain.UseCaseResult
 import com.tondracek.myfarmer.features.demo.domain.AddDemoUC
-import com.tondracek.myfarmer.shared.demo.domain.GetFilteredDemosUC
+import com.tondracek.myfarmer.features.demo.domain.GetFilteredDemosUC
+import com.tondracek.myfarmer.shared.core.domain.UseCaseResult
 import kotlinx.coroutines.flow.SharingStarted
 import kotlinx.coroutines.flow.StateFlow
 import kotlinx.coroutines.flow.map
